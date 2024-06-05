@@ -1,0 +1,192 @@
+Today's Agenda
+===============
+Agile Methodology[How we are saving the cost]
+   TDD
+Physical server and data center
+Hypervisor[Type1 and type2]
+Virtual server
+simulator
+forward compatibility and backward compatibility
+Monolithic application
+Microservices application
+
+Casestudy: I want to make calculator[Addition, substraction, multiplication and divison]
+
+
+1) Development[codding]
+2) Testing[Internal]
+3) Client testing team
+4) Deployment team
+
+Let say each row represent 1 day
+
+In this scenario, I am going to take 16 days to deliver my project, and 75% of people are having no work.
+
+if we are breaking our task into multiple task then my efficienty is going to increase.
+
+Role of Agile: The ability to move about quickly and easily.
+
+In agile we have different approache?
+
+1) TDD[Test driven development]
+===============================
+
+2+2=4
+10000+50000=60000
+900*90=81000
+
+initial stage I will not write any code, I will just write the testcase, and when I am running the TC, code would be failed, now I will confine the code
+as per TC
+
+
+Unit testing
+=============
+Add(2,4)==6 # Unit testing, these test cases are written by developer
+
+General: Code > Test > deploy
+TDD:     Test(fail) > Code > Test > deploy
+
+
+Working on TDD agile methodology for delivering the software.
+
+git clone https://github.com/spring-projects/spring-petclinic.git
+cd spring-petclinic
+./mvnw test
+
+Practical implemtation of Agile
+================================
+When we would be implemting Agile we have 4 ways-
+1) Basic
+2) Agile
+3) CMMI
+4) Scrum
+
+Physical server
+===============
+A machine with: 256 MB of RAM, although more than 2 GB is recommended. 10 GB of drive space (for Jenkins and your Docker image)
+
+> Oraganisation are purchasing higher capacity server
+
+> How to create virtual server from physical server.
+
+>>Hypervisor<<
+==============
+Tool that allow to create virtual server from physical server
+
+1) Type1:
+
+2) Type2:
+
+How to know which hypervisor I am using $lscpu
+
+
+Agile to microservice movement
+=================================
+1) When we are breaking application to multiple parts, we can change the technology also.
+
+2) Issue with point 1
+======================
+1) My Devops lifecyle would be change from 1 to 4 which might need additional resource to manage the load.
+
+2) My server would be heavy[More software installed]
+
+
+3) To address point 2 Hypervisor came into picture.
+
+Hypervisor: 1960
+Advance hypervisor
+
+4) If I assign 1 GB RAM and 10 GB HDD, so my server can't use more than that, if it is using less then I am wasting my resource. to solve this problem we have container.
+
+5) Container are server which perfectly use your memory, RAM and HDD
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
