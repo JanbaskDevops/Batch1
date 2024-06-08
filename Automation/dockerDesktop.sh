@@ -17,6 +17,6 @@ wget https://myawstestbyumesh.s3.us-west-2.amazonaws.com/docker-desktop-4.30.0-a
 
 # Installing the docker desktop
 apt-get update
-apt-get install ./docker-desktop-4.30.0-amd64.deb
+apt-get install ./docker-desktop-4.30.0-amd64.deb -y
 
 echo "Docker Desktop is installed, Please use docker init to generate the Dockerfile and docker-compose.yaml"
