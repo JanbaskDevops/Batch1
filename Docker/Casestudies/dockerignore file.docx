@@ -1,0 +1,19 @@
+Golden Image concept
+====================
+git, docker, curl
+
+
+Manual App Deployment Step
+==========================
+sudo apt update
+sudo apt install openjdk-8-jdk -y
+java -version
+wget https://referenceapplicationskhaja.s3.us-west-2.amazonaws.com/spring-petclinic-2.4.2.jar 
+java -jar spring-petclinic-2.2.0.BUILD-SNAPSHOT.jar
+
+
+https://referenceapplicationskhaja.s3.us-west-2.amazonaws.com/spring-petclinic-2.4.2.jar
+
+http://ec2-18-191-158-119.us-east-2.compute.amazonaws.com:8080/
+
+https://github.com/spring-petclinic/spring-framework-petclinic >> need to validate

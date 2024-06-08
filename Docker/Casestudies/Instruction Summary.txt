@@ -1,0 +1,11 @@
+FROM => Helps in choosing the base image
+RUN => Adds the execution/installation on the base image to build our application
+LABEL => ADDS metadata
+ENV => Set ENVIRONMENT variables
+EXPOSE => PORTS to be exposed by application
+ADD/COPY => Content to be added into the image from local or from urlss
+USER => User with which container has to be started (if not specificed root)
+WORKDIR => Working Directory
+ARG => Build time arguments
+CMD => Command that will be called when container is created
+ENTRYPOINT => Command that will be called when container is created
