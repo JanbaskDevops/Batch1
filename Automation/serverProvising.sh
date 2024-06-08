@@ -27,24 +27,24 @@ echo "Tools installation done, Now printing version"
 echo "Printing Java version"
 echo "=========================="
 java --version 
-echo "==========================\n"
+echo "=========================="
 
 echo "Printing git version"
 echo "=========================="
 git --version
-echo "==========================\n"
+echo "=========================="
 
 echo "Printing ngnix version"
 echo "=========================="
 nginx -v
-echo "==========================\n"
+echo "=========================="
 
 echo "Printing docker version"
 echo "=========================="
 docker --version
-echo "==========================\n"
+echo "=========================="
 
 echo "Printing maven version"
 echo "=========================="
 mvn --version
-echo "==========================\n"
+echo "=========================="
