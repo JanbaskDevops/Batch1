@@ -1,0 +1,11 @@
+http {
+
+    server {
+        listen 8080;
+        root /etc/nginx/;
+       
+    }}    
+
+events { }
+
+#If you want you can define index.html at /etc/nginx directory
