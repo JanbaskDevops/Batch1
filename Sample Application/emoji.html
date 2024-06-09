@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emoji Generator</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+
+        #emoji-output {
+            font-size: 2em;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Emoji Generator</h1>
+
+    <label for="input-text">Enter Text:</label>
+    <input type="text" id="input-text" placeholder="Type text here">
+
+    <button onclick="generateEmoji()">Generate Emoji</button>
+
+    <div id="emoji-output"></div>
+
+    <script>
+        function generateEmoji() {
+            // Get the input text
+            var inputText = document.getElementById('input-text').value;
+
+            // Check if input is not empty
+            if (inputText.trim() !== '') {
+                // Generate emoji (you can replace this logic with your own emoji generation)
+                var emoji = getEmoji(inputText);
+
+                // Display the generated emoji
+                document.getElementById('emoji-output').innerText = emoji;
+            } else {
+                alert('Please enter text before generating emoji.');
+            }
+        }
+
+        function getEmoji(text) {
+            // Replace this with your own logic for emoji generation
+            // Here, I'm simply appending a heart emoji to the text
+            return text + ' ❤️';
+        }
+    </script>
+</body>
+</html>

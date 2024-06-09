@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Call Your Wife Reminder</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+
+        #reminder-container {
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+
+        #call-button {
+            padding: 10px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Call Your Wife Reminder</h1>
+
+    <div id="reminder-container">
+        <p>Don't forget to call your wife today!</p>
+    </div>
+
+    <button id="call-button" onclick="setReminder()">Call Now</button>
+
+    <script>
+        function setReminder() {
+            alert("Remember to call your wife today!");
+        }
+    </script>
+</body>
+</html>

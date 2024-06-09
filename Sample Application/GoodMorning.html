@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Good Morning Message Generator</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+
+        #message-container {
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Random Good Morning Message Generator</h1>
+
+    <button onclick="generateMessage()">Generate Message</button>
+
+    <div id="message-container"></div>
+
+    <script>
+        function generateMessage() {
+            // Array of 1000 Good Morning messages
+            var goodMorningMessages = [
+                "Good morning! Have a wonderful day.",
+                "Rise and shine! It's a new day.",
+                "Good morning! Make today amazing.",
+                // ... add more messages ...
+            ];
+
+            // Get a random index from the array
+            var randomIndex = Math.floor(Math.random() * goodMorningMessages.length);
+
+            // Display the randomly selected message
+            var messageContainer = document.getElementById('message-container');
+            messageContainer.innerText = goodMorningMessages[randomIndex];
+        }
+    </script>
+</body>
+</html>

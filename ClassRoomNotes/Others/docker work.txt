@@ -1,0 +1,75 @@
+Step1: Azure CLI installation
+===============================
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
+
+Step2: Authentication with Azure
+=================================
+ubuntu $ az login
+To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code XXXXXXXXX to authenticate.
+
+ubuntu $ az login
+To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code HMQEGE63Q to authenticate.
+^C ubuntu $ ^C
+
+ubuntu $ az login
+To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code IHPDGMK35 to authenticate.
+
+Retrieving tenants and subscriptions for the selection...
+
+[Tenant and subscription selection]
+
+No     Subscription name    Subscription ID                       Tenant
+-----  -------------------  ------------------------------------  -----------------
+[1] *  Free Trial           XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX  Default Directory
+
+The default is marked with an *; the default tenant is 'Default Directory' and subscription is 'Free Trial' (926ea4a2-de06-412f-9d6f-e14e201d8858).
+
+Step3: Create a Resource Group
+==============================
+Command: az group create --name myResourceGroup --location eastus
+
+Replace myResourceGroup with your desired resource group name and eastus with your desired Azure region.
+
+
+
+Step4: Create the Container Registry
+====================================
+Command: az acr create --resource-group myResourceGroup --name mycontainerregistry2020ht66049 --sku Basic
+
+Replace myContainerRegistry with your desired registry name. The name must be unique within Azure and can only contain lowercase letters and numbers. The --sku parameter specifies the pricing tier. You can choose from Basic, Standard, or Premium.
+
+
+Step5: Login to container registry
+==================================
+ubuntu $ az acr login --name mycontainerregistry2020ht66049
+Login Succeeded
+
+Step6: Pull the spc docker image, and push in our registry
+==========================================================
+2020ht66049/image1:SPC
+docker tag 2020ht66049/image1:SPC mycontainerregistry2020ht66049.azurecr.io/myapp:v1
+docker push  mycontainerregistry2020ht66049.azurecr.io/myapp:v1
+
+
+Support: https://stackoverflow.com/questions/78204042/azure-web-app-application-error-if-you-are-the-application-administrator-you
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

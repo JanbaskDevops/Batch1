@@ -1,0 +1,17 @@
+FROM ubuntu
+CMD echo "Ubuntu system"
+RUN apt-get update
+RUN apt install nginx -y
+
+Can we Create image with above instruction > Yes, but not recommended.
+
+Explanation: 
+
+1) Container will kill itself, once CMD echo[Line2] is done because, because it will it's work is done.
+
+2) So, seeing output would be very difficult.
+
+Correct way is do provisioning first.
+
+
+ 
