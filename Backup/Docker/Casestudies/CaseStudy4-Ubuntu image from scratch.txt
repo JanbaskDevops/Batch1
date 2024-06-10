@@ -1,0 +1,28 @@
+FROM scratch
+ADD ubuntu-bionic-oci-amd64-root.tar.gz /
+CMD ["bash"]
+
+Go to image(https://hub.docker.com/_/ubuntu), and click on tag
+
+Link: https://github.com/tianon/docker-brew-ubuntu-core/blob/7a6c081cbf5fd53c66c954766280a5d0cf1a6a5a/bionic/Dockerfile
+
+root@ip-172-31-0-4:~# docker build -t imageu1 .
+Sending build context to Docker daemon   16.9kB
+Step 1/3 : FROM scratch
+ --->
+Step 2/3 : ADD https://partner-images.canonical.com/oci/bionic/current/ubuntu-bionic-oci-amd64-root.tar.gz /
+Downloading [==================================================>]  26.09MB/26.09MB
+ ---> fec936711bd5
+Step 3/3 : CMD ["bash"]
+ ---> Running in c64a36dd289e
+Removing intermediate container c64a36dd289e
+ ---> d63b6e6101a9
+Successfully built d63b6e6101a9
+Successfully tagged imageu1:latest
+root@ip-172-31-0-4:~# docker image ls
+REPOSITORY        TAG       IMAGE ID       CREATED          SIZE
+imageu1           latest    d63b6e6101a9   8 seconds ago    26.1MB
+image3            latest    a3ede5387824   44 minutes ago   72.8MB
+jenkins/jenkins   latest    09370caaea01   2 days ago       463MB
+image1            latest    54c9d81cbb44   2 weeks ago      72.8MB
+ubuntu            latest    54c9d81cbb44   2 weeks ago      72.8MB
