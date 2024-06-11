@@ -1,0 +1,35 @@
+1) Build context name should be Dockerfile/dockerfile only, if instruction both are present then docker will choose Dockerfile. No other name is allowed
+
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+unable to prepare context: unable to evaluate symlinks in Dockerfile path: lstat /root/Dockerfile: no such file or directory
+
+2) To go inside a container >>> docker run -it <ImageName>:<TagName> /bin/bash
+
+3) To exit from container >>> exit
+
+4) Revision of RUN CMD and FROM
+
+5) Types of user 1) root, 2) normal, 3) sudo
+
+docker tag local-image:tagname new-repo:tagname
+docker push new-repo:tagname
+
+docker tag image2 2020ht66049/image2:8.2.2
+docker push 2020ht66049/image2:8.2.2
+
+MultiOS file > Last from and last CMD would be executed
+============
+FROM ubuntu
+CMD echo "Hi"
+FROM alpine
+CMD echo "bye"
+FROM centos
+CMD echo "See you later"
+
+6) Docker image naming convention
+
+
+
