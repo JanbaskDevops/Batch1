@@ -1,0 +1,11 @@
+Region, Zone
+What is cloud provider
+What is datacenter
+
+15 yrs back
+==========
+Amazon > Very good documetation
+Microsoft > not good documentation at all
+
+
+docker build -t image23 . –no-cache

@@ -1,0 +1,19 @@
+Way1
+====
+
+FROM ubuntu
+RUN apt-get update
+RUN apt install unzip -y
+RUN apt-get update
+RUN apt-get install wget -y
+RUN wget https://releases.hashicorp.com/terraform/1.8.5/terraform_1.8.5_linux_386.zip
+RUN unzip terraform_1.8.5_linux_386.zip
+
+
+Way2
+====
+FROM ubuntu
+RUN apt-get update
+RUN apt install unzip -y
+ADD https://releases.hashicorp.com/terraform/1.8.5/terraform_1.8.5_linux_386.zip .
+RUN unzip terraform_1.8.5_linux_386.zip
