@@ -1,0 +1,32 @@
+ubuntu $ az --version
+azure-cli                         2.0.81
+
+
+ubuntu $ az --version
+azure-cli                         2.61.0
+Link: https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt
+
+Note: Software version play a very important role, and some time it might be the cause of issue.
+
+1) Process must be uniform
+
+2) Enforce deployment process used by all, including Dev and Ops
+personnel. In general, when a process becomes enforced, some individuals
+may be required to change their normal operating procedures and,
+possibly, the structure of the systems on which they work. One point where
+a deployment process could be enforced is in the initiation phase of each
+system. Each system, when it is initialized, verifies its pedigree. That is, it
+arrived at execution through a series of steps, each of which can be
+checked to have occurred. Furthermore, the systems on which it depends
+(e.g., operating systems or middleware) also have verifiable pedigrees.
+
+
+Today Agenda:
+=============
+8:30 to 9:00 PM IST: Creating terraform setup for Azure
+
+9:00 to 10:00: Discussion on IP, subnet, CIDR, VNET, CPU, RAM, ROM, HDD, SDD, DNS, DHCP
+
+Practical Task1: Creating Azure VM
+
+Practical Task2: Creating Storage
