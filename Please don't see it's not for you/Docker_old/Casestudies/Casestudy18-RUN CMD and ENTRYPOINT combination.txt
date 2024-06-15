@@ -1,7 +1,0 @@
-FROM alpine
-CMD ["echo", "Hello Docker"]
-
-
-FROM alpine
-ENTRYPOINT ["echo"]
-CMD ["Hello Docker"]
