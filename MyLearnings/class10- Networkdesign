@@ -100,7 +100,7 @@ Design a network to connect to those many devices that you calculated.
 
 My example: I need to design a network to connect to 3000 devices.
 255.255.255.0 >>  2 to power 8 -2      = 254
-255.255.255.0   >>  2 to power 16 -2     = 65534
+255.255.0.0   >>  2 to power 16 -2     = 65534
 255.0.0.0     >>  2 to power 24 -2     = 167777214
 
 
