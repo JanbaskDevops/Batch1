@@ -1,0 +1,12 @@
+Snapshot is runtime capture.
+
+golden images: reusable imges: IAC
+
+casestudy: Organisation required following software:
+1) Chat services
+2) Email services
+3) Labour claim software
+4) Directory services
+5) VPN
+
+Microsoft >> IBM(Lets do this provision)
