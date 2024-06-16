@@ -1,0 +1,83 @@
+terraform {
+  required_providers {
+    azurerm = {
+      source = "hashicorp/azurerm"
+      version = "3.108.0"
+    }
+  }
+}
+
+provider "azurerm" {
+  features {}
+}
+
+resource "azurerm_resource_group" "example" {
+  name     = "example-resources"
+  location = "West Europe"
+}
+
+
+│ Error: A resource with the ID "/subscriptions/ba21d0cb-26a2-4919-80e6-d00cb178806c/resourceGroups/example-resources" already exists - to be managed via Terraform this resource needs to be imported into the State. Please see the resource documentation for "azurerm_resource_group" for more information.
+│ 
+│   with azurerm_resource_group.example,
+│   on main.tf line 14, in resource "azurerm_resource_group" "example":
+│   14: resource "azurerm_resource_group" "example" {
+│
+
+
+│ Error: The name "example-app-service" used for the App Service needs to be globally unique and isn't available: Hostname 'example-app-service' already exists. Please select a different name.
+│ 
+│   with azurerm_app_service.example,
+│   on main.tf line 30, in resource "azurerm_app_service" "example":
+│   30: resource "azurerm_app_service" "example" {
+
+
+
+ubuntu $ terraform apply
+╷
+│ Error: Error acquiring the state lock
+│ 
+│ Error message: resource temporarily unavailable
+│ Lock Info:
+│   ID:        93070d12-d012-75a0-2c60-b1ad10633733
+│   Path:      terraform.tfstate
+│   Operation: OperationTypeApply
+│   Who:       root@ubuntu
+
+
+
+
+Error: building account: could not acquire access token to parse claims: running Azure CLI: exit status 2: ERROR: az: error: unrecognized arguments: --scope https://graph.microsoft.com/.default
+│ usage: az [-h] [--verbose] [--debug]
+│           [--output {json,jsonc,table,tsv,yaml,none}] [--query JMESPATH]
+│           {account} ...
+│ 
+│   with provider["registry.terraform.io/hashicorp/azurerm"],
+│   on main.tf line 10, in provider "azurerm":
+│   10: provider "azurerm" {
+
+
+
+Error: The name "example-app-service" used for the App Service needs to be globally unique and isn't available: Hostname 'example-app-service' already exists. Please select a different name.
+│ 
+│   with azurerm_app_service.example,
+│   on main.tf line 30, in resource "azurerm_app_service" "example":
+│   30: resource "azurerm_app_service" "example" {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
