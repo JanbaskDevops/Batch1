@@ -28,8 +28,8 @@ tar xvf cri-dockerd-v0.2.0-linux-amd64.tar.gz
 mv ./cri-dockerd /usr/local/bin/ 
 
 
-kubeadm init --cri-socket unix:///var/run/cri-dockerd.sock
-#kubeadm init
+#kubeadm init --cri-socket unix:///var/run/cri-dockerd.sock
+kubeadm init
 #kubeadm init --ignore-preflight-errors=Swap --ignore-preflight-errors=NumCPU
 
 Solution for container not running
