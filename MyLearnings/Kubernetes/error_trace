@@ -1,0 +1,21 @@
+=======================================================================
+ kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
+error: error validating "https://docs.projectcalico.org/manifests/calico.yaml": error validating data: failed to download openapi: Get "https://10.0.0.4:6443/openapi/v2?timeout=32s": tls: failed to verify certificate: x509: certificate signed by unknown authority (possibly because of "crypto/rsa: verification error" while trying to verify candidate authority certificate "kubernetes"); if you choose to ignore these errors, turn validation off with --validate=false
+----------fix------------
+ sudo kubeadm reset
+ sudo swapoff -a 
+
+ sudo kubeadm init --pod-network-cidr=10.244.10.0/16 --kubernetes- 
+  version "1.18.3"
+ sudo rm -rf $HOME/.kube
+
+ mkdir -p $HOME/.kube
+ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+ sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+ sudo systemctl enable docker.service
+ sudo service kubelet restart
+ 
+ kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
+ kubectl get nodes
+========================================================================
