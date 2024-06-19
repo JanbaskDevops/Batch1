@@ -1,0 +1,20 @@
+# Define the build argument for the base image
+ARG BASE_IMAGE=nginx:alpine
+
+# Use the specified base image
+FROM ${BASE_IMAGE}
+
+# Set the working directory
+WORKDIR /usr/share/nginx/html
+
+# Copy the index.html file to the working directory in the container
+COPY html/index.html .
+
+# Expose port 80 to the outside world
+EXPOSE 80
+
+# The CMD instruction is already set in the base image to run the web server,
+# so we don't need to specify it again.
+
+
+docker build -t my-nginx-app --build-arg BASE_IMAGE=nginx:latest .

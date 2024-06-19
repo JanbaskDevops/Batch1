@@ -1,0 +1,14 @@
+FROM ubuntu as mvn
+RUN apt update
+RUN apt install -y git
+RUN apt-get update
+RUN apt install openjdk-17-jre-headless -y
+RUN git clone https://github.com/spring-projects/spring-petclinic.git
+WORKDIR spring-petclinic
+RUN ./mvnw clean package -DskipTests
+
+FROM ubuntu
+RUN apt-get update
+RUN apt install openjdk-17-jre-headless -y
+COPY --from=mvn /spring-petclinic/target/spring-petclinic*.jar /spring-petclinic.jar
+CMD java -jar /spring-petclinic.jar
