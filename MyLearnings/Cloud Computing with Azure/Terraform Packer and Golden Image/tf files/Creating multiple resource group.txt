@@ -1,0 +1,13 @@
+provider "azurerm" {
+  features {}
+}
+
+resource "azurerm_resource_group" "example" {
+  count    = 10
+  name     = "example-resources-${count.index}"
+  location = "West Europe"
+
+  tags = {
+    Environment = "Terraform Demo"
+  }
+}

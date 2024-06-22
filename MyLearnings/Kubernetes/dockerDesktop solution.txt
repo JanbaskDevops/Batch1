@@ -1,0 +1,4 @@
+apt-get update ; apt install docker.io
+
+ubuntu $ mkdir /usr/local/bin
+ubuntu $ cp /usr/bin/docker /usr/local/bin/

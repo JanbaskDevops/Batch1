@@ -12,3 +12,4 @@ EXPOSE 80
 
 # The CMD instruction is already set in the nginx:alpine base image
 # to run Nginx, so we don't need to specify it again.
+

@@ -20,3 +20,9 @@ apt-get update
 apt-get install ./docker-desktop-4.30.0-amd64.deb -y
 
 echo "Docker Desktop is installed, Please use docker init to generate the Dockerfile and docker-compose.yaml"
+
+
+
+#apt-get update ; apt install docker.io
+#ubuntu $ mkdir /usr/local/bin
+#ubuntu $ cp /usr/bin/docker /usr/local/bin/
