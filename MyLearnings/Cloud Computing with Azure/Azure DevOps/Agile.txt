@@ -1,0 +1,7 @@
+There are two face of SDLC
+1) Development phase: Plan Code Build Test
+2) Operation phase: Release Deploy Operate and Monitor
+
+
+Agile is designed to work within development team. 
+

@@ -1,0 +1,16 @@
+resource "azurerm_sql_server" "example" {
+  name                         = "example-sqlserver"
+  resource_group_name          = azurerm_resource_group.example.name
+  location                     = azurerm_resource_group.example.location
+  version                      = "12.0"
+  administrator_login          = "adminlogin"
+  administrator_login_password = "adminpassword1234"
+}
+
+resource "azurerm_sql_database" "example" {
+  name                = "example-sqldb"
+  resource_group_name = azurerm_resource_group.example.name
+  location            = azurerm_resource_group.example.location
+  server_name         = azurerm_sql_server.example.name
+  edition             = "Basic"
+}

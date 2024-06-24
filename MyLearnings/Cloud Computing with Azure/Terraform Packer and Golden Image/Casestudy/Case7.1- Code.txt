@@ -1,0 +1,44 @@
+trigger:
+- main  # Adjust this to your main branch or the branch you want to trigger the pipeline
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  - group: TerraformSecrets  # Reference the variable group
+
+stages:
+- stage: Terraform
+  jobs:
+  - job: TerraformJob
+    steps:
+    - task: UsePythonVersion@0
+      inputs:
+        versionSpec: '3.x'
+    
+    - checkout: self
+
+    - script: |
+        curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+        sudo apt-add-repository "deb https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+        sudo apt-get update && sudo apt-get install terraform
+      displayName: 'Install Terraform'
+
+    - script: |
+        echo $ARM_CLIENT_SECRET > client_secret.txt
+      displayName: 'Save Client Secret'
+
+    - script: |
+        terraform init -backend-config="storage_account_name=<storage_account_name>" \
+                      -backend-config="container_name=<container_name>" \
+                      -backend-config="key=<state_file_name>" \
+                      -backend-config="access_key=$(<path_to_access_key>)"
+      displayName: 'Terraform Init with Backend'
+
+    - script: |
+        terraform plan -out=tfplan
+      displayName: 'Terraform Plan'
+
+    - script: |
+        terraform apply -auto-approve tfplan
+      displayName: 'Terraform Apply'
