@@ -1,0 +1,10 @@
+# For development environment
+terraform apply -var-file="dev.tfvars" -auto-approve
+
+# For staging environment
+terraform apply -var-file="staging.tfvars" -auto-approve
+
+# For production environment
+terraform apply -var-file="prod.tfvars" -auto-approve
+
+To automate the approval process when applying Terraform configurations, you can use the -auto-approve flag with the terraform apply command. This flag allows Terraform to apply changes without prompting for user confirmation

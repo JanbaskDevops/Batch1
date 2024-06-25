@@ -1,3 +1,5 @@
 https://developer.hashicorp.com/packer/tutorials/aws-get-started/aws-get-started-build-image
 
 https://developer.hashicorp.com/packer/tutorials/aws-get-started/aws-get-started-provision
+
+https://learn.microsoft.com/en-us/azure/virtual-machines/linux/build-image-with-packer
