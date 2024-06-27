@@ -1,0 +1,31 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+steps:
+- task: TerraformTaskV1@0
+  displayName: Terra Init
+  inputs:
+    provider: 'azurerm'
+    command: 'init'
+    workingDirectory: Terraform
+    backendServiceArm: 'azuretoterraform'
+    backendAzureRmResourceGroupName: 'common-services-miel'
+    backendAzureRmStorageAccountName: 'mielstorage001'
+    backendAzureRmContainerName: 'configman'
+    backendAzureRmKey: 'tf/terraform.tfstate'
+
+
+- task: TerraformTaskV1@0
+  displayName: Terra Apply
+  inputs:
+    provider: 'azurerm'
+    command: 'apply'
+    workingDirectory: Terraform
+    backendServiceArm: 'azuretoterraform'
+    backendAzureRmResourceGroupName: 'common-services-miel'
+    backendAzureRmStorageAccountName: 'mielstorage001'
+    backendAzureRmContainerName: 'configman'
+    backendAzureRmKey: 'tf/terraform.tfstate'
+    environmentServiceNameAzureRM: 'azuretoterraform'
