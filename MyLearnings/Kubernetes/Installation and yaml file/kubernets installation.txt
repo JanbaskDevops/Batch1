@@ -1,0 +1,22 @@
+ apt-get update
+ apt install docker.io -y
+  
+ apt-get update
+ apt-get install -y apt-transport-https ca-certificates curl
+ curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
+ echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+    
+ apt-get update
+ apt-get install -y kubelet kubeadm kubectl
+ apt-mark hold kubelet kubeadm kubectl
+
+
+ kubeadm init --pod-network-cidr=10.244.0.0/16 --ignore-preflight-errors=NumCPU --ignore-preflight-errors=Mem
+ #You would be getting output as a join command that you need to run on other node.
+ mkdir -p $HOME/.kube
+ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+ sudo chown $(id -u):$(id -g) $HOME/.kube/config
+ 
+ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+ # Supporting document: https://phoenixnap.com/kb/install-kubernetes-on-ubuntu
+

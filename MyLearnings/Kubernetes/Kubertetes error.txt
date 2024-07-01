@@ -1,0 +1,29 @@
+🔣 𝗞𝘂𝗯𝗲𝗿𝗻𝗲𝘁𝗲𝘀 𝗖𝗼𝗺𝗺𝗼𝗻 𝗘𝗿𝗿𝗼𝗿𝘀 🔣
+
+1️⃣.𝙄𝙢𝙖𝙜𝙚𝘽𝙖𝙘𝙠𝙋𝙪𝙡𝙡𝙊𝙛𝙛 :- 
+We face this issue when the image is not present in registry or the given image tag is wrong.
+Make sure you provide correct registry url, image name and image tag.
+
+We might face authentication failures, when image is being stored in a private registry, make sure to create secret with private registry credentials and add created secret in Kubernetes Deployment File to pull docker image.
+
+2️⃣.𝘾𝙧𝙖𝙨𝙝𝙇𝙤𝙤𝙥𝘽𝙖𝙘𝙠𝙊𝙛𝙛 :-
+We face this issue when the process deployed inside container not running then the POD will be moved to CrashLoopBackOff.
+POD might be running out of CPU or memory, POD should get enough resources allocated that’s cpu and memory for an application to be up and running, to fix that check in Resources Requests and Resources Limits.
+
+3️⃣.𝙊𝙊𝙈 𝙆𝙞𝙡𝙡𝙚𝙙 - 𝙊𝙪𝙩 𝙊𝙛 𝙈𝙚𝙢𝙤𝙧𝙮 :-
+We face this issue when PODs tries to utilise more memory than the limits we have set.
+We can resolve it by setting appropriate resource request and resource limit.
+
+4️⃣.𝙋𝙊𝘿 𝙎𝙩𝙖𝙩𝙪𝙨 – 𝙋𝙚𝙣𝙙𝙞𝙣𝙜 :-
+When nodes might not be ready and required resources like CPU and Memory may not be available in nodes for the PODs to be up and running.
+
+5️⃣.𝙋𝙊𝘿 𝙎𝙩𝙖𝙩𝙪𝙨 – 𝙒𝙖𝙞𝙩𝙞𝙣𝙜 :-
+POD will be scheduled to a node but POD won’t be running in scheduled node.
+We can fix this by providing correct image name, image tag and authentication to registry.
+
+6️⃣.𝙋𝙊𝘿 𝙬𝙞𝙡𝙡 𝙗𝙚 𝙪𝙥 𝙖𝙣𝙙 𝙧𝙪𝙣𝙣𝙞𝙣𝙜 𝙖𝙣𝙙 𝙖𝙥𝙥𝙡𝙞𝙘𝙖𝙩𝙞𝙤𝙣 𝙞𝙨 𝙣𝙤𝙩 𝙖𝙘𝙘𝙚𝙨𝙨𝙞𝙗𝙡𝙚.
+We can fix this by creating appropriate service.
+If service is already created and application is still not accessible, make sure application and service are deployed in same namespace.
+
+7️⃣.𝙋𝙊𝘿 𝙎𝙩𝙖𝙩𝙪𝙨 – 𝙀𝙫𝙞𝙘𝙩𝙚𝙙 :-
+We can resolve this by setting appropriate resource requests and resource limits for the PODs and having enough resources in worker nodes.

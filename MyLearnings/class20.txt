@@ -1,0 +1,47 @@
+Suppose, I want to run spring pet clinic
+
+1) Linux machine
+2) Install GIT, maven and Java17
+3) Application deployment
+
+1) Linux - 1$
+2) GIT - 1$
+3) Maven -1$
+4) Java -1$
+
+5 PPL (24*7) -500$
+------------------------
+Per yr cost: 504$
+Premises change: 1$
+Other:           1$
+----------------------------------
+                506$
+----------------------------------
+
+Cloud is saying> I will do your work in 30% of your money, and I will manage all > 151$
+
+Azure WebAPP
+============
+1) WebApp[HTML, CSS and JavaScript]
+
+2) WebApp with database/Storage
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

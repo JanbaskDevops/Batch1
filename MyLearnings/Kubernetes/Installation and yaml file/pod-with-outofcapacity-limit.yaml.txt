@@ -1,0 +1,19 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: resource-requirements-demo
+spec:
+  containers:
+    - name: container-with-limits
+      image: nginx
+      ports:
+        - containerPort: 80
+          protocol: TCP
+      resources:
+        limits:
+          memory: "128G"
+          cpu: "32"
+        requests:
+          memory: "64G"
+          cpu: "16"
