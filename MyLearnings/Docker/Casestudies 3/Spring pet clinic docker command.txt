@@ -1,0 +1,13 @@
+docker run -p 8080:8080 -idt springcommunity/spring-framework-petclinic
+
+FROM ubuntu
+sudo apt update
+sudo apt install openjdk-11-jdk -y
+RUN apt-get update
+RUN apt-get install git -y
+RUN apt-get update
+RUN apt-get install maven -y
+RUN git clone https://github.com/spring-projects/spring-petclinic.git
+WORKDIR spring-petclinic
+RUN ./mvnw package
+CMD java -jar target/*.jar

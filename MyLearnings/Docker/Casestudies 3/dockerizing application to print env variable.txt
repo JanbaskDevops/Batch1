@@ -1,0 +1,5 @@
+Create a docker container that will print all the environment variables when container is started
+    
+Solution:
+FROM alpine
+CMD set

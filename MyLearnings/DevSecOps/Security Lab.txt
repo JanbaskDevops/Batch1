@@ -1,5 +1,5 @@
-1) SAST Hands on
-=================
+1) SAST[Static application security testing] Hands on
+=====================================================
 
 [Source code] https://github.com/juice-shop/juice-shop
 Step1: git clone https://github.com/juice-shop/juice-shop
@@ -12,13 +12,16 @@ Step3: curl -fsSL https://raw.githubusercontent.com/ZupIT/horusec/master/deploym
 
 Step4: horusec start -D -e="true" -p ./
 
-2) DAST hands on
-================
+Horusec is an open source framework that enhances the identification of vulnerabilities in your project with just one command.
+https://horusec.io/site/
+
+2) DAST[Dynamic application security testing] hands on
+==========================
 Run application as container
 Step1: docker run --rm -idt -p 3000:3000 bkimminich/juice-shop 
 
 docker run -t ghcr.io/zaproxy/zaproxy:stable zap-baseline.py -t <Application URL>
-docker run -t ghcr.io/zaproxy/zaproxy:stable zap-baseline.py -t http://ip172-18-0-100-ckucfiufml8g009dm00g-3000.direct.labs.play-with-docker.com/#/
+docker run -t ghcr.io/zaproxy/zaproxy:stable zap-baseline.py -t http://ip172-18-0-72-cq3ouei91nsg00damfh0-3000.direct.labs.play-with-docker.com
 
 WARN-NEW: Dangerous JS Functions [10110] x 2 
         http://ip172-18-0-100-ckucfiufml8g009dm00g-3000.direct.labs.play-with-docker.com/main.js (200 OK)

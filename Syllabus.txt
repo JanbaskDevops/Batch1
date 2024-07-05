@@ -1,0 +1,38 @@
+Azure
+======
+ARM, VM, App-service, service-principle, azure CLI, VNET
+
+Docker
+======
+Host and container deployment
+writing docker image : FROM CMD RUN EXPOSE COPY ADD USER ENV ARG ENTRYPOINT 
+Docker file instruction
+100 Images:
+docker init
+
+Kubernetes
+==========
+Installation
+
+Terraform
+=========
+Provisioner[Pre, post(remote) and local]
+for_each and count
+null resource
+provider
+Terraform life cycle
+statefile
+backend
+terraform import
+terraform refresh
+
+Packer and Golden Image
+=======================
+Packer installation
+Golden image creation
+
+Security
+========
+Bug, vurnebility and code smell
+Sonarcloud installation and navigation
+Horusec, and vurnebility scan

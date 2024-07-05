@@ -1,0 +1,28 @@
+Spring Petclinic Sample app
+===========================
+
+Link: https://projects.spring.io/spring-petclinic/
+
+Manual Instruction:
+==================
+sudo apt update
+sudo apt install openjdk-11-jdk -y
+wget https://referenceapplicationskhaja.s3.us-west-2.amazonaws.com/spring-petclinic-2.4.2.jar
+java -jar spring-petclinic-2.4.2.jar
+
+Docker file
+===========
+FROM openjdk:11
+LABEL author="khaja"
+ADD https://referenceapplicationskhaja.s3.us-west-2.amazonaws.com/spring-petclinic-2.4.2.jar /spring-petclinic.jar
+EXPOSE 8080
+CMD [ "java", "-jar", "/spring-petclinic.jar" ]
+
+Now lets try to create the container using spc:1.0 docker container run -d --name myspc1 -P spc:1.0
+FROM openjdk:11.0.13-jre-slim
+LABEL author="khaja"
+ADD https://referenceapplicationskhaja.s3.us-west-2.amazonaws.com/spring-petclinic-2.4.2.jar /spring-petclinic.jar
+EXPOSE 8080
+
+Multistage docker build
+https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/Dockerfile
