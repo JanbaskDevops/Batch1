@@ -1,0 +1,40 @@
+Base: My customer and developer must talk togather.
+
+Suppose, client has a requirement to write code for calculator.
+
+Version1: Developer has written some come, and send it for review to client.
+Responce1: Client has given some comments.
+
+Version2: Developer has added fix for requirement, and send for review.
+Responce2: Client has given some more comments
+
+Version3: Developer has added fix for requirement, and send for review.
+Responce2: Client has given some more comments
+
+Version4: Developer has added fix for requirement, and send for review.
+Responce2: Client has given some more comments
+
+Version5: Developer has added fix for requirement, and send for review.
+Responce2: Client has given some more comments
+
+Version6: Developer has added fix for requirement, and send for review.
+Responce2: Client has given some more comments
+
+Now, client is telling my first version was good, but somehow developer lost it.
+
+What is GIT?
+===========
+GIT is a version control tool that keep track of each and every change in effective way.
+Example: https://www.jenkins.io/changelog/
+
+<majorVersion><minorVersion><fixPack>
+
+How GIT keep changes of each track?
+===================================
+GIT has 5 Areas.
+
+Exacize1: Install and uninstall GIT.[Support link- https://git-scm.com/book/en/v2/Getting-Started-Installing-Git]
+Exacize2: Create a repository, and setup username and password.
+Exacize3: GIT command practice
+
+

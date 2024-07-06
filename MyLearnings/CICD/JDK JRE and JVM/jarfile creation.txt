@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Step 1: Write the Java Program
+echo 'public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}' > HelloWorld.java
+
+# Step 2: Compile the Java Program
+javac HelloWorld.java
+
+# Step 3: Create a Manifest File
+echo 'Main-Class: HelloWorld' > manifest.txt
+
+# Step 4: Create the JAR File
+jar cfm HelloWorld.jar manifest.txt HelloWorld.class
+
+# Step 5: Run the JAR File
+java -jar HelloWorld.jar

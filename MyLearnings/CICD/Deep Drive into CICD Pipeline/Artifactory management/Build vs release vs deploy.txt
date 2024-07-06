@@ -1,0 +1,5 @@
+>>> Build means: combine static logic and business logic.
+
+>>> Release means: installing application in one development environment.
+
+>>> Deploy Means: installing application in production environment.

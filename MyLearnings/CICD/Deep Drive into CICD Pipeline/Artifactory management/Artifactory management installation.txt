@@ -1,0 +1,17 @@
+https://fabianlee.org/2017/02/20/maven-installing-a-private-maven-repository-on-ubuntu-using-artifactory/ > to install and export java
+
+https://jfrog.com/artifactory/install/
+
+Download is performed unsandboxed as root as file '/root/artifactory-pro.deb' couldn't be accessed by user '_apt'. - pkgAcquire::Run (13: Permission denied)
+sudo chown -Rv _apt:root /root/artifactory-pro.deb
+sudo chmod -Rv 700 /root/artifactory-pro.deb
+
+Using your browser, you should now be able to pull up, http://<server>:8081/artifactory.  The default credentials are admin/password (which you should immediately change).
+https://www.jfrog.com/confluence/display/JFROG/Configuring+Jenkins+Artifactory+Plug-in
+
+support question:https://climbtheladder.com/jfrog-artifactory-interview-questions/
+
+curl -u "admin:password" -T <FILE_PATH> -H "X-Explode-Archive: true" -H "Content-Type: application/zip" -X PUT http://localhost:8081/artifactory/<PATH>/
+curl -sSf -u "<USERNAME>:<PASSWORD>" \
+       -O 'http(s)://<ARTIFACTORY_URL>/<REPO>/<PATH>/file.zip'
+
