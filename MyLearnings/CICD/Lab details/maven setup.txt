@@ -1,0 +1,24 @@
+apt-get update
+apt install maven -y
+
+mvn --version
+
+git clone https://github.com/jfrog/jfrog-maven-hello-world.git
+cd jfrog-maven-hello-world
+mvn install
+
+This part needs to be added in the pom.xml
+<distributionManagement>
+    <snapshotRepository>
+        <id>snapshots</id>
+        <name>a0o4rekoq6zfw-artifactory-primary-0-snapshots</name>
+        <url>https://mylearningdevops.jfrog.io/artifactory/test-libs-snapshot</url>
+    </snapshotRepository>
+</distributionManagement>
+
+vi ~/.m2/settings.xml
+
+mvn deploy
+
+
+https://mylearningdevops.jfrog.io/ui/packages # Location where packages are deployed
