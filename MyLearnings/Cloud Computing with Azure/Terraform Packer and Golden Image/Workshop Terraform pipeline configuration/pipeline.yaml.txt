@@ -1,0 +1,38 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: TerraformTaskV4@4
+  inputs:
+    workingDirectory: Terraform
+    provider: 'azurerm'
+    command: 'init'
+    backendAzureRmUseEnvironmentVariablesForAuthentication: false
+    backendAzureRmUseEntraIdForAuthentication: false
+    backendServiceArm: 'azuretoterraform'
+    backendAzureRmResourceGroupName: 'myResourceGroup2020ht66049'
+    backendAzureRmStorageAccountName: 'mystr2020ht66049'
+    backendAzureRmContainerName: 'terraformstate'
+    backendAzureRmKey: 'terraform. tfstate'
+
+- task: TerraformTaskV4@4
+  inputs:
+    workingDirectory: Terraform
+    provider: 'azurerm'
+    command: 'apply'
+    backendAzureRmUseEnvironmentVariablesForAuthentication: false
+    backendAzureRmUseEntraIdForAuthentication: false
+    backendServiceArm: 'azuretoterraform'
+    backendAzureRmResourceGroupName: 'myResourceGroup2020ht66049'
+    backendAzureRmStorageAccountName: 'mystr2020ht66049'
+    backendAzureRmContainerName: 'terraformstate'
+    backendAzureRmKey: 'terraform. tfstate'
+    environmentServiceNameAzureRM: azuretoterraform
