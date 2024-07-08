@@ -1,0 +1,18 @@
+Video to watch
+==============
+https://www.youtube.com/watch?v=_JNeiGbAgL4
+
+Topic to google
+===============
+Software Testing - Definition, Fundamentals and Principles 
+Bugs , Validation & Verification , SDLC , STLC 
+SDLC Models : Water Fall, V, Iterative and Incremental 
+SDLC Models - RAD, Prototype, Spiral and Agile 
+Software Test Phases/Levels 
+Functional, Non-Functional and Other Testing Types 
+Static & Dynamic Testing / Review Process 
+Dynamic Testing Techniques
+White Box Testing and Techniques 
+Test Management, Monitoring and Control 
+Configuration and Defect Management 
+Test and Defect Management Tools 
