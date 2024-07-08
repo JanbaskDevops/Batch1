@@ -1,0 +1,11 @@
+What is JDK
+What is JRE
+What is JVM
+What is Maven
+How to install JDK, JRE and maven
+How to do version check for JDK, JRE and maven
+What is EAR, WAR and Jar
+Environment planning
+Cost comparison between JDK and JRE
+Development tools
+What is POM.xml
