@@ -1,0 +1,18 @@
+Step1: Open killerkoda
+
+Step2: Install maven
+          apt-get update
+          apt install maven
+
+
+Step3: Clone spring pet clinic
+            git clone https://github.com/spring-projects/spring-petclinic.git
+            cd spring-petclinic
+
+Step4: login to repository, and create maven based repository
+           https://jfrog.com/artifactory/
+
+
+Step5: Add the artifactory details in pom.xml
+
+Step6: mvn deploy
