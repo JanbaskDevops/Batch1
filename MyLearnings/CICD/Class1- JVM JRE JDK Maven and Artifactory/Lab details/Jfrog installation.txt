@@ -1,17 +1,52 @@
-https://fabianlee.org/2017/02/20/maven-installing-a-private-maven-repository-on-ubuntu-using-artifactory/ > to install and export java
+Here's a step-by-step guide to installing JFrog Artifactory on Ubuntu:
 
-https://jfrog.com/artifactory/install/
+1. *Update System Packages:*
+   bash
+   sudo apt-get update
+   
 
-Download is performed unsandboxed as root as file '/root/artifactory-pro.deb' couldn't be accessed by user '_apt'. - pkgAcquire::Run (13: Permission denied)
-sudo chown -Rv _apt:root /root/artifactory-pro.deb
-sudo chmod -Rv 700 /root/artifactory-pro.deb
+2. *Install Java:*
+   JFrog Artifactory requires Java. You can install OpenJDK using the following command:
+   bash
+   sudo apt-get install openjdk-11-jdk -y
+   
 
-Using your browser, you should now be able to pull up, http://<server>:8081/artifactory.  The default credentials are admin/password (which you should immediately change).
-https://www.jfrog.com/confluence/display/JFROG/Configuring+Jenkins+Artifactory+Plug-in
+3. *Download JFrog Artifactory:*
+   Go to the [JFrog Artifactory download page](https://jfrog.com/artifactory/download/) and get the download link for the latest version. Use wget to download it:
+   bash
+   wget https://releases.jfrog.io/artifactory/artifactory-pro/org/artifactory/pro/jfrog-artifactory-pro/7.21.10/jfrog-artifactory-pro-7.21.10-linux.tar.gz
+   
 
-support question:https://climbtheladder.com/jfrog-artifactory-interview-questions/
+4. *Extract the Downloaded Archive:*
+   bash
+   tar -xvzf jfrog-artifactory-pro-7.21.10-linux.tar.gz
+   
 
-curl -u "admin:password" -T <FILE_PATH> -H "X-Explode-Archive: true" -H "Content-Type: application/zip" -X PUT http://localhost:8081/artifactory/<PATH>/
-curl -sSf -u "<USERNAME>:<PASSWORD>" \
-       -O 'http(s)://<ARTIFACTORY_URL>/<REPO>/<PATH>/file.zip'
+5. *Move the Extracted Folder:*
+   bash
+   sudo mv artifactory-pro-7.21.10 /opt/jfrog
+   
 
+6. *Set Up Permissions:*
+   bash
+   sudo chown -R $(whoami):$(whoami) /opt/jfrog
+   
+
+7. *Start Artifactory:*
+   ```bash
+   /opt/jfrog/artifactory-pro-7.21.10/app/bin/artifactory.sh start
+
+
+
+#Shellscript
+
+apt-get update
+sudo apt-get install openjdk-11-jdk -y
+
+wget https://releases.jfrog.io/artifactory/artifactory-pro/org/artifactory/pro/jfrog-artifactory-pro/7.9.2/jfrog-artifactory-pro-7.9.2-linux.tar.gz
+
+tar -xvzf jfrog-artifactory-pro-7.9.2-linux.tar.gz
+
+mv artifactory-pro-7.9.2 /opt/jfrog
+sudo chown -R $(whoami):$(whoami) /opt/jfrog
+/opt/jfrog/app/bin/artifactory.sh start
