@@ -8,3 +8,7 @@ tar -xvzf jfrog-artifactory-pro-7.9.2-linux.tar.gz
 mv artifactory-pro-7.9.2 /opt/jfrog
 sudo chown -R $(whoami):$(whoami) /opt/jfrog
 /opt/jfrog/app/bin/artifactory.sh start
+
+http://<your-server-ip>:8081/artifactory
+
+Userid/Password: admin / password
