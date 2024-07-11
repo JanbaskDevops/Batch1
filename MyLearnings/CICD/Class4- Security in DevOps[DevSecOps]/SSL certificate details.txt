@@ -1,0 +1,15 @@
+SSL certificate provide secure communication between browser and server
+
+1) In SSL communication first communication is happening between browser and server.
+
+2) Public Key + Private key
+
+3) Public key is available over internet[Bank Key]
+
+4) Owner would be having private key[Actual key]
+
+5) When client send request to server, server will share public key, and ask client please provide information who are you in terms of your details.
+
+6) client will add userid/password this information will be encrypted by public key
+
+7) As server is having private key, so it server only can open your message.
