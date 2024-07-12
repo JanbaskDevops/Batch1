@@ -1,0 +1,5 @@
+mvnw $1
+=======
+apt-get update
+apt install maven
+mvn $1
