@@ -1,0 +1,7 @@
+We have two phase of Application Development
+1) Development phase- Plan code build test
+2) Operation phase: release deploy operate and monitor
+Agile talks about development phase
+Devops talks about both Development and Operation phase
+SRE talks about Operation phase
+Plaform Engineering talks about infrastucture
