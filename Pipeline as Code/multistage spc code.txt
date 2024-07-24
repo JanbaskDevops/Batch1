@@ -1,0 +1,61 @@
+
+# ASP.NET
+# Build and test ASP.NET projects.
+# Add steps that publish symbols, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/apps/aspnet/build-aspnet-4
+
+trigger:
+- main
+
+stages:
+- stage: build
+  jobs:
+    - job: 
+      pool:
+        vmImage: 'ubuntu-latest'
+
+      variables:
+        mavenOptions: '-DskipTests' # Options to pass to Maven
+        outputDir: 'target' # Directory where Maven outputs the JAR file
+        jarFileName: 'spring-petclinic.jar' # Name of the JAR file
+
+      steps:
+      - task: JavaToolInstaller@0
+        inputs:
+          versionSpec: '17'
+          jdkArchitectureOption: 'x64'
+          jdkSourceOption: 'PreInstalled'
+      
+      - task: Maven@4
+        inputs:
+          mavenPomFile: 'pom.xml'
+          goals: 'clean package'
+        displayName: 'Build with Maven'
+
+      - task: PublishPipelineArtifact@1
+        inputs:
+          targetPath: '$(Build.SourcesDirectory)/$(outputDir)'
+          artifact: 'drop'
+          publishLocation: 'pipeline'
+
+- stage: DeployToDev
+  jobs:
+  - deployment: Deploy
+    environment: 'development'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: DownloadBuildArtifacts@1
+            inputs:
+              buildType: 'current'
+              downloadType: 'single'
+              artifactName: drop
+              downloadPath: '$(System.ArtifactsDirectory)'
+          
+          - task: AzureWebApp@1
+            inputs:
+              azureSubscription: 'AdoToAzure20072024'
+              appType: 'webApp'
+              appName: 'my2020ht66049Umesh1'
+              package: '$(Build.ArtifactStagingDirectory)/**/*.jar'

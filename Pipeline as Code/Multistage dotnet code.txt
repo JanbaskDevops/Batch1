@@ -1,0 +1,96 @@
+# ASP.NET
+# Build and test ASP.NET projects.
+# Add steps that publish symbols, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/apps/aspnet/build-aspnet-4
+
+trigger:
+- main
+
+stages:
+- stage: build
+  jobs:
+    - job: 
+      pool:
+        vmImage: 'ubuntu-latest'
+
+      variables:
+        solution: '**/*.sln'
+        buildPlatform: 'Any CPU'
+        buildConfiguration: 'Release'
+
+      steps:
+      - task: NuGetToolInstaller@1
+
+      - task: NuGetCommand@2
+        inputs:
+          restoreSolution: '$(solution)'
+
+      - task: DotNetCoreCLI@2
+        inputs:
+          command: 'build'
+          projects: '**/*.csproj'
+          arguments: '--configuration Release --no-restore'
+
+      - task: DotNetCoreCLI@2
+        inputs:
+          command: 'test'
+          projects: '**/*.csproj'
+          arguments: '--configuration Release --no-restore'
+
+
+      - task: DotNetCoreCLI@2
+        inputs:
+          command: 'publish'
+          arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+          publishWebProjects: true
+          zipAfterPublish: true
+
+      - task: PublishBuildArtifacts@1
+        inputs:
+          PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+          ArtifactName: 'drop'
+          publishLocation: 'Container'
+
+- stage: DeployToDev
+  jobs:
+  - deployment: Deploy
+    environment: 'development'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: DownloadBuildArtifacts@1
+            inputs:
+              buildType: 'current'
+              downloadType: 'single'
+              artifactName: drop
+              downloadPath: '$(System.ArtifactsDirectory)'
+          
+          - task: AzureWebApp@1
+            inputs:
+              azureSubscription: 'AdoToAzure20072024'
+              appType: 'webApp'
+              appName: 'my2020ht66049Umesh'
+              package: '$(Build.ArtifactStagingDirectory)/**/*.zip'
+
+- stage: DeployToTest
+  jobs:
+  - deployment: Deploy
+    environment: 'test'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: DownloadBuildArtifacts@1
+            inputs:
+              buildType: 'current'
+              downloadType: 'single'
+              artifactName: drop
+              downloadPath: '$(System.ArtifactsDirectory)'
+          
+          - task: AzureWebApp@1
+            inputs:
+              azureSubscription: 'AdoToAzure20072024'
+              appType: 'webApp'
+              appName: 'my2020ht66049Umesh1'
+              package: '$(Build.ArtifactStagingDirectory)/**/*.zip'
