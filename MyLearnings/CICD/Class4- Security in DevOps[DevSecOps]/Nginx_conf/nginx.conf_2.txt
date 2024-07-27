@@ -1,0 +1,37 @@
+http {
+
+    server {
+        listen 8080;
+        root /etc/nginx/;
+
+    }
+
+server {
+        listen 8081;
+        root /etc/nginx/;
+
+    }
+
+server {
+        listen 8082;
+        root /etc/nginx/;
+
+    }
+
+server {
+        listen 8083;
+        root /etc/nginx/;
+
+    }
+
+server {
+        listen 8084;
+        root /etc/nginx/;
+
+    }
+
+
+
+}
+
+events { }

@@ -1,0 +1,33 @@
+#Master Node
+ec2-3-142-213-5.us-east-2.compute.amazonaws.com
+#ip-172-31-16-68.us-east-2.compute.internal
+
+#Slave1
+ec2-3-17-182-29.us-east-2.compute.amazonaws.com 
+#ip-172-31-19-130.us-east-2.compute.internal
+
+#Slave2
+ec2-18-222-250-127.us-east-2.compute.amazonaws.com 
+#ip-172-31-19-236.us-east-2.compute.internal
+
+https://www.cyberciti.biz/faq/create-a-user-account-on-ubuntu-linux/
+Command to create user: sudo adduser devops
+
+Change PasswordAuthentication to yes in /etc/ssh/sshd_config
+
+ssh-keygen
+ssh-copy-id devops@ec2-3-17-182-29.us-east-2.compute.amazonaws.com 
+ssh-copy-id devops@ec2-18-222-250-127.us-east-2.compute.amazonaws.com  
+================================
+/etc/ssh/sshd_config
+
+ec2-3-139-99-172.us-east-2.compute.amazonaws.com
+ec2-3-143-170-29.us-east-2.compute.amazonaws.com
+
+
+ssh-copy-id -i ~/.ssh/id_rsa.pub <user-id>@<x-host>  //Command to copy password 
+
+devops@ip-172-31-24-213:/home/ubuntu$ ansible -i /etc/ansible/hosts  -m command -a "top" all
+[ERROR]: User interrupted execution
+
+

@@ -1,0 +1,47 @@
+---
+- name: Deploy spring petclinic as Linux Service
+  hosts: appserver
+  become: yes
+  tasks:
+    - name: Fail the execution when the distribution is not ubuntu and centos
+      fail:
+        msg: "This playbook will work only on ubuntu instances. Support for other OS will be added soon"
+      when: ansible_facts['distribution'] != "Ubuntu" and ansible_facts['distribution'] != "CentOS"
+    - name: Update ubuntu packages and install java
+      apt:
+    - name: install java
+      package:
+        name: "{{ java_package }}"
+        update_cache: yes
+        state: present
+      notify:
+        - debug message for java
+      when: ansible_facts['distribution'] == "Ubuntu"
+    - name: Install Java on Centos
+      yum:
+        name: "{{ java_package }}"
+        state: present
+      when: ansible_facts['distribution'] == "CentOS"
+    - name: Create a spring petclinic directory
+      file:
+        path: "{{ app_dir }}"
+        state: directory
+      notify:
+        - debug message for directory creation
+    - name: download spring petclinic
+      get_url:
+        url: "{{ app_download_url }}"
+        dest: "{{ app_file_name }}"
+    - name: Create springbootuser
+      user:
+        name: "{{ app_username }}"
+        password: "{{ app_username }}"
+        state: present
+      notify:
+        - Change ownership of jar file
+    - name: Copy the spring petclinic service file
+      copy:
+        dest: /etc/systemd/system/springpetclinic.service
+        src: springpetclinic.service
+    - name: Enable and start spring petclinic
+      systemd:

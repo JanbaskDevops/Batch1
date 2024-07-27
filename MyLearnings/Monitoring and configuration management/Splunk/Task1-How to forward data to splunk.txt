@@ -1,0 +1,9 @@
+inputs.conf file
+[monitor:///var/log/*.log]
+index = linux
+
+The custom index can be created with a custom indexes.conf on your indexer:
+[linux]
+homePath   = $SPLUNK_DB/linux/db
+coldPath   = $SPLUNK_DB/linux/colddb
+thawedPath = $SPLUNK_DB/linux/thaweddb

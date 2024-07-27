@@ -1,0 +1,23 @@
+The three dashes --- are used to signal the start of a document, i.e.:
+
+    To signal the document start after directives, i.e., %YAML or %TAG lines according to the current spec. For example:
+
+    %YAML 1.2
+    %TAG !foo! !foo-types/
+    ---
+    myKey: myValue
+
+    To signal the document start when you have multiple yaml documents in the same stream, e.g., a yaml file:
+
+    doc 1
+    ---
+    doc 2
+
+    If doc 2 has some preceding directives, then we have to use three dots ... to indicate the end of doc 1 (and the start of potential directives preceding doc 2) to the parser. For example:
+
+    doc 1
+    ...
+    %TAG !bar! !bar-types/
+    ---
+    doc 2
+

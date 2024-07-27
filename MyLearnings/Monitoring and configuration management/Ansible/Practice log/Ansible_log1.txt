@@ -1,0 +1,69 @@
+ec2-3-21-156-111.us-east-2.compute.amazonaws.com >> Master
+ec2-3-22-116-89.us-east-2.compute.amazonaws.com >> node1
+ec2-3-132-212-6.us-east-2.compute.amazonaws.com >> Node2
+
+ec2-3-21-156-111.us-east-2.compute.amazonaws.com
+ec2-3-22-116-89.us-east-2.compute.amazonaws.com
+ec2-3-132-212-6.us-east-2.compute.amazonaws.com 
+
+ssh -i "/c/Users/UmeshChouksey/Desktop/Newlaptop.pem" ubuntu@ec2-3-21-156-111.us-east-2.compute.amazonaws.com
+ssh -i "/c/Users/UmeshChouksey/Desktop/Newlaptop.pem" ubuntu@ec2-3-22-116-89.us-east-2.compute.amazonaws.com
+ssh -i "/c/Users/UmeshChouksey/Desktop/Newlaptop.pem" ubuntu@ec2-3-132-212-6.us-east-2.compute.amazonaws.com
+
+$ chmod 400 /c/Users/UmeshChouksey/Desktop/Newlaptop.pem
+
+ubuntu@ip-172-31-30-209:~$ ssh -i "/c/Users/UmeshChouksey/Desktop/Newlaptop.pem" ubuntu@ec2-3-22-116-89.us-east-2.compute.amazonaws.com
+Warning: Identity file /c/Users/UmeshChouksey/Desktop/Newlaptop.pem not accessible: No such file or directory.
+ubuntu@ec2-3-22-116-89.us-east-2.compute.amazonaws.com: Permission denied (publickey).
+
+ssh -i "/c/Users/UmeshChouksey/Desktop/Newlaptop.pem" ubuntu@ec2-3-21-156-111.us-east-2.compute.amazonaws.com
+ssh -i "/home/ubuntu/Newlaptop.pem" ubuntu@ec2-3-22-116-89.us-east-2.compute.amazonaws.com
+ssh -i "/home/ubuntu/Newlaptop.pem" ubuntu@ec2-3-132-212-6.us-east-2.compute.amazonaws.com
+
+It is required that your private key files are NOT accessible by others.
+This private key will be ignored.
+Load key "/home/ubuntu/Newlaptop.pem": bad permissions
+ubuntu@ec2-3-22-116-89.us-east-2.compute.amazonaws.com: Permission denied (publickey).
+
+Anible Installation: https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
+
+ubuntu@ip-172-31-30-209:~$ ansible --version
+ansible 2.9.6
+  config file = /etc/ansible/ansible.cfg
+  configured module search path = ['/home/ubuntu/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3/dist-packages/ansible
+  executable location = /usr/bin/ansible
+  python version = 3.8.5 (default, Jan 27 2021, 15:41:15) [GCC 9.3.0]
+ubuntu@ip-172-31-30-209:~$
+
+
+ubuntu@ip-172-31-30-209:~$ python --version
+
+Command 'python' not found, did you mean:
+
+  command 'python3' from deb python3
+  command 'python' from deb python-is-python3
+
+ubuntu@ip-172-31-30-209:~$ python3 --version
+Python 3.8.5
+
+root@ip-172-31-30-209:/etc/ansible# ansible -i hosts -m ping all
+The authenticity of host 'ec2-3-22-116-89.us-east-2.compute.amazonaws.com (172.31.23.146)' can't be established.
+ECDSA key fingerprint is SHA256:iBufxkCGE1+hgcMITRwEcox9rkENrZK3pvBc6bkS4kg.
+The authenticity of host 'ec2-3-21-156-111.us-east-2.compute.amazonaws.com (172.31.30.209)' can't be established.
+ECDSA key fingerprint is SHA256:MEVEwjCUCI6ePddIQj0KJE1jnM8MNBZn4xaJ0iVflyo.
+The authenticity of host 'ec2-3-132-212-6.us-east-2.compute.amazonaws.com (172.31.21.204)' can't be established.
+ECDSA key fingerprint is SHA256:7vlZapP0+fE6806WvGlgZ1ZefeG5lmy3o+MOJMTZWQ4.
+
+ec2-3-22-116-89.us-east-2.compute.amazonaws.com | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: Warning: Permanently added 'ec2-3-22-116-89.us-east-2.compute.amazonaws.com,172.31.23.146' (ECDSA) to the list of known hosts.\r\nroot@ec2-3-22-116-89.us-east-2.compute.amazonaws.com: Permission denied (publickey).",
+    "unreachable": true
+}
+^C [ERROR]: User interrupted execution
+
+
+
+
+
+

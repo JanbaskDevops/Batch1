@@ -1,0 +1,1 @@
+https://www.digitalocean.com/community/questions/permission-is-denied-while-connecting-to-server-with-ansible-via-ssh
