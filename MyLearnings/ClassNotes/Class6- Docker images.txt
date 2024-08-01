@@ -1,0 +1,342 @@
+How to check which OS we are using
+===================================
+cat /etc/*-release
+
+ubuntu $ cat /etc/*-release
+DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=20.04
+DISTRIB_CODENAME=focal
+DISTRIB_DESCRIPTION="Ubuntu 20.04.5 LTS"
+NAME="Ubuntu"
+VERSION="20.04.5 LTS (Focal Fossa)"
+ID=ubuntu
+ID_LIKE=debian
+PRETTY_NAME="Ubuntu 20.04.5 LTS"
+VERSION_ID="20.04"
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+VERSION_CODENAME=focal
+UBUNTU_CODENAME=focal
+
+Now, lets run the command
+=======================
+
+docker run -it centos
+
+Unable to find image 'centos:latest' locally
+latest: Pulling from library/centos
+a1d0c7532777: Pull complete 
+Digest: sha256:a27fd8080b517143cbbbab9dfb7c8571c40d67d534bbdee55bd6c473f432b177
+Status: Downloaded newer image for centos:latest
+[root@a9f1a48be2a3 /]# cat /etc/*-release
+CentOS Linux release 8.4.2105
+NAME="CentOS Linux"
+VERSION="8"
+ID="centos"
+ID_LIKE="rhel fedora"
+VERSION_ID="8"
+PLATFORM_ID="platform:el8"
+PRETTY_NAME="CentOS Linux 8"
+ANSI_COLOR="0;31"
+CPE_NAME="cpe:/o:centos:centos:8"
+HOME_URL="https://centos.org/"
+BUG_REPORT_URL="https://bugs.centos.org/"
+CENTOS_MANTISBT_PROJECT="CentOS-8"
+CENTOS_MANTISBT_PROJECT_VERSION="8"
+CentOS Linux release 8.4.2105
+CentOS Linux release 8.4.2105
+
+/ # cat /etc/*-release
+3.20.0
+NAME="Alpine Linux"
+ID=alpine
+VERSION_ID=3.20.0
+PRETTY_NAME="Alpine Linux v3.20"
+HOME_URL="https://alpinelinux.org/"
+BUG_REPORT_URL="https://gitlab.alpinelinux.org/alpine/aports/-/issues"
+
+
+What is OS level virtualization?
+Running OS with OS
+
+How to write OS image for Docker?
+=================================
+
+1) In the OS image we will write a text file, and that text file is reffered as build context.
+
+2) Always we need to give build context file name as Dockerfile[It's a text file]
+
+Rule1) First line should be always FROM <OS>
+           FROM centos
+           FROM ubuntu
+           FROM redhat
+           FROM alpine
+
+Rule2) in top of OS, if you want to execute any command
+           CMD command <argument>
+
+I want to print hello world
+
+Rule3) to build docker image  >>> docker build -t imagename:tag .
+
+Rule4) to run docker image  >>> docker run imagename
+
+Rule5) For provisioning command please put RUN in front of Linux command
+
+Syntax
+======
+vi Dockerfile ; then press I > write > press ESC key  > :wq
+
+To create docker image from build context >>> docker build -t <Imagename>:<tagname> .
+
+To run the docker image >>> docker run <Imagename>:<tagname>
+
+Task: Print Hello-world in ubuntu OS
+
+Vi editor
+=========
+1) To open a file >> vi filename then press enter
+
+2) When we are creating a file file would be in read only mode, press <i> from your keyboard to get file in insert mode
+
+3) Making file in read mode >>> press ESC key from keyboard
+
+4) :wq then enter
+
+docker build -t image1:latest .
+
+docker run image1:latest
+
+Dockerfile
+FROM ubuntu
+CMD echo "Hello-world"
+
+
+Create a docker image with name image1:gitjava
+
+
+FROM ubuntu
+
+RUN apt-get update
+RUN apt install git -y
+
+RUN apt-get update
+RUN apt install openjdk-17-jre-headless -y
+
+CMD echo "Hello-world"
+
+docker build -t image1:gitjava .
+
+docker run image1:gitjava
+
+FROM ubuntu
+
+RUN apt-get update
+RUN apt install git -y
+
+RUN apt-get update
+RUN apt install openjdk-17-jre-headless -y
+
+
+RUN git clone https://github.com/spring-projects/spring-petclinic.git
+WORKDIR spring-petclinic
+RUN ./mvnw package
+CMD java -jar target/*.jar
+
+
+Rule6) For all the Linux command given for application deployment, please put RUN in front for all command, and for last command put CMD.
+Exception> RUN cd > WORKDIR
+
+
+
+What is difference between CMD and RUN?
+=======================================
+
+
+
+
+docker login
+
+
+docker tag image1:latest :tagname
+docker push new-repo:tagname
+
+
+
+docker tag image:SPClatest 2020ht66049/image:SPClatest
+docker push 2020ht66049/image:SPClatest
+
+
+
+
+
+
+docker push 2020ht66049/batch1forme:image1:latest
+
+
+
+docker push 2020ht66049/myrepostiry2:tagname
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

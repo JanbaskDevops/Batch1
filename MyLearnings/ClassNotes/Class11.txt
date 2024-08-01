@@ -1,0 +1,41 @@
+Today's Agenda
+===============
+1) ARM overview
+2) creating virtual machine in azure
+3) local and remote provisioner
+
+
+
+
+rg-dev
+
+rg-test
+
+rg-qa
+
+rg-preprod
+
+rg-prod
+
+
+resource group is mandatory
+
+rg-<Environment>-<Department>-<Project>-<Location>-<UniqueID>
+rg-dev-Learning-Batch1-euw1-001
+
+Umesh@8618996024
+
+
+Virtual machine: Linux environment
+
+
+
+
+
+
+
+
+
+
+
+

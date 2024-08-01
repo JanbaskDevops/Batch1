@@ -1,0 +1,66 @@
+# Step1 Docker must be installed
+apt-get update
+apt install docker.io
+
+
+
+# Step2 Installing kubelet kubeadm and kubectl
+apt-get update
+apt-get install -y apt-transport-https ca-certificates curl gpg -y
+
+mkdir -p -m 755 /etc/apt/keyrings
+
+curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.30/deb/Release.key |  gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+
+echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.30/deb/ /' | tee /etc/apt/sources.list.d/kubernetes.list
+
+apt-get update
+apt-get install -y kubelet kubeadm kubectl
+apt-mark hold kubelet kubeadm kubectl
+
+
+
+# Step3 Installing GO version 20
+wget https://golang.org/dl/go1.20.linux-amd64.tar.gz
+tar -C /usr/local -xzf go1.20.linux-amd64.tar.gz
+echo "export PATH=\$PATH:/usr/local/go/bin" >> ~/.profile
+source ~/.profile
+
+
+#Step4 Installing container runtime
+wget https://github.com/Mirantis/cri-dockerd/releases/download/v0.2.0/cri-dockerd-v0.2.0-linux-amd64.tar.gz
+tar xvf cri-dockerd-v0.2.0-linux-amd64.tar.gz
+mv ./cri-dockerd /usr/local/bin/ 
+
+
+Above 4 steps needs to perform in Both Master and Slave
+
+
+#Step 5[Only on master node]
+kubeadm init
+
+This command will take 4-5 minutes, and you would be able to see below output
+
+kubeadm join 10.0.0.5:6443 --token f9zz3v.zlm2l3ki8jmiso9z \
+        --discovery-token-ca-cert-hash sha256:0f95d518a316f089a5ce3b74079e08421e454ec0b6c7ecadb645d5e11690af81
+
+
+# Step6 Run below command in Master only
+  mkdir -p $HOME/.kube
+  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+  kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
+
+# Step7
+  Run the join command on slave nodes which you get output of step5
+
+# Step8 run below command on master
+kubectl get nodes
+
+
+
+
+
+
+

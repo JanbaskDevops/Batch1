@@ -1,0 +1,13 @@
+Stateful application
+====================
+Stateful applications save data to persistent disk storage for use by the server, by clients, and by other applications
+
+Example: 
+
+
+Stateless application
+=====================
+A stateless app is an application program that does not save client data generated in one session for use in the next session with that client
+
+Link- https://digitalcloud.training/stateful-vs-stateless-aws-applications/
+

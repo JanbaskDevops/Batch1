@@ -1,0 +1,94 @@
+Package manager: Package manager provides easy way to install, uninstall and upgrade, downgrade software[YUM, APT, NPM]
+
+Syntax:
+Install: apt install <package_name>
+Uninstall: apt remove <package_name>
+
+Docker
+======
+Uninstall: apt remove docker.io -y
+Install: apt install docker.io -y
+Version check: docker --version
+
+GIT
+======
+Uninstall: apt remove git -y
+Install: apt install git -y
+Version check: git --version
+
+nginx
+======
+Install: apt install nginx -y
+#Uninstall: apt remove nginx -y
+Version check: nginx -v
+
+maven
+======
+Install: apt install maven -y
+#Uninstall: apt remove maven -y
+Version check: mvn --version
+
+Java
+======
+Install: apt install openjdk-17-jre-headless -y
+#Uninstall: apt remove openjdk-17-jre-headless -y
+Version check: java --version
+
+Package manager[apt] always work with latest version of software
+
+
+ubuntu $ apt-get update
+Hit:1 http://archive.ubuntu.com/ubuntu focal InRelease
+Hit:2 http://security.ubuntu.com/ubuntu focal-security InRelease
+Get:3 http://archive.ubuntu.com/ubuntu focal-updates InRelease [128 kB]
+Hit:4 http://archive.ubuntu.com/ubuntu focal-backports InRelease
+Fetched 128 kB in 2s (80.2 kB/s)
+Reading package lists... Done
+ubuntu $ 
+
+Hit:  There is no change is package version.                                                                                                                                 Igr:   Package is being ignored                                                                                                                                                Get: New version of package is available.                                                                                                                                                                        
+
+
+Repository: It's a place where all the software version are available
+
+https://myawstestbyumesh.s3.us-west-2.amazonaws.com/docker-desktop-4.30.0-amd64.deb
+
+apt-get upgrade> it will update some software packages.
+
+(Reading database ... 73051 files and directories currently installed.)
+Preparing to unpack .../libpam-systemd_245.4-4ubuntu3.23_amd64.deb ...
+Unpacking libpam-systemd:amd64 (245.4-4ubuntu3.23) over (245.4-4ubuntu3.18) ...
+Preparing to unpack .../libapparmor1_2.13.3-7ubuntu5.3_amd64.deb ...
+Unpacking libapparmor1:amd64 (2.13.3-7ubuntu5.3) over (2.13.3-7ubuntu5.1) ...
+Preparing to unpack .../libgnutls30_3.6.13-2ubuntu1.11_amd64.deb ...
+Unpacking libgnutls30:amd64 (3.6.13-2ubuntu1.11) over (3.6.13-2ubuntu1.7) ...
+Setting up libgnutls30:amd64 (3.6.13-2ubuntu1.11) ...
+
+How package is getting ingored
+==============================
+ apt-get update
+ apt-get install -y kubelet kubeadm kubectl
+ apt-mark hold kubelet kubeadm kubectl
+
+
+How to write docker image:
+=========================
+1) For writing Dockerfile first line should be-
+   FROM <OS-name>   ubuntu | alpine | centos
+
+2) Provisioning
+   RUN <Linux command>
+
+Requirement: write a docker image with java 17 and maven installed on it on ubuntu OS
+ 
+3) To create docker image we need to write instruction in Dockerfile
+
+4) Command to create docker image is-
+     docker build -t <Imagename> .
+    
+5) . represent same location
+
+https://www.azurespeed.com/ChatGPT/WritingAssistant
+https://www.azurespeed.com/ChatGPT/CodeAssistant
+
+
