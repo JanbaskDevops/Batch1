@@ -1,0 +1,29 @@
+Helm Chart: Helm chart is a docker image with template to run it in Kubernetes.
+
+bitnami chart
+
+
+jenkins installation > helm install my-release oci://registry-1.docker.io/bitnamicharts/jenkins
+Wordpress Appliction > helm install my-release oci://registry-1.docker.io/bitnamicharts/wordpress 
+
+
+Important point: To run helm chart as a pre work we need to install Docker, Kubernetes and Helm.
+
+How to install helm:
+===================
+$ curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+$ chmod 700 get_helm.sh
+$ ./get_helm.sh
+
+How to create helm chart
+========================
+helm create <chartname>
+
+Once we execute this command, it will create directory with name <chartname>
+
+-rw-r--r-- 1 root root 2358 Aug 23 15:55 values.yaml
+-rw-r--r-- 1 root root 1141 Aug 23 15:55 Chart.yaml > This provide information about chart and it's meta-data[data reffering to data]
+drwxr-xr-x 3 root root 4096 Aug 23 15:55 templates
+drwxr-xr-x 2 root root 4096 Aug 23 15:55 charts
+
+
